@@ -1,51 +1,20 @@
 <template>
-  <div class="menu">
-    <!--<h1>{{ msg }}</h1>-->
-    <h2>Essential Links</h2>
-    <nav>
-      <ul>
-        <li v-for="menu in navList">
-          <router-link :to="menu.path"> {{ menu.name }} </router-link>
-        </li>
-      </ul>
-    </nav>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router12
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          测试页
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-load测试页
-
-          er3
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          测试页-vue4
-        </a>
-      </li>
-    </ul>
+<div class="nav">
+  <div class="container">
+    <div class="fl">
+      <span>首页</span>
+    </div>
+    <div class="fr">
+      <span>四川旅游</span>
+      <span>西藏旅游</span>
+      <span>长江三峡</span>
+      <span>省外旅游</span>
+      <span>酒店住宿</span>
+      <span>旅游新闻</span>
+      <span>四川特色</span>
+    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -73,22 +42,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .menu{
-    position: relative;
-    overflow: hidden;
-  }
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.container{
+  max-width:1920px;
 }
 </style>
