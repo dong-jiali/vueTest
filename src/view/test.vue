@@ -117,6 +117,7 @@ export default {
     margin:0px auto;
     border: 2px solid blue;
   }
+  /***/
   .big_banner{
     float:left;
     width:230px;
