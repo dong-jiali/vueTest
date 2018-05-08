@@ -1,19 +1,24 @@
 <template>
 <div class="nav">
-  <div class="container">
-    <div class="fl">
-      <span>首页</span>
-    </div>
-    <div class="fr">
-      <span>四川旅游</span>
-      <span>西藏旅游</span>
-      <span>长江三峡</span>
-      <span>省外旅游</span>
-      <span>酒店住宿</span>
-      <span>旅游新闻</span>
-      <span>四川特色</span>
+  <div class="toolbar"><!--工具条-->
+    <div class="tool-container"></div><!--工具条居中-->
+  </div>
+  <div class="header"><!--页头-->
+    <div class="header_mid"></div><!--页头居中-->
+  </div>
+  <div class="mainnav"><!--栏目-->
+    <div class="mainnav_center"></div><!--栏目居中-->
+  </div>
+  <div class="banner"><!--海报-->
+    <div class="banner_content"></div><!--海报内容-->
+  </div>
+  <div class="content_main">
+    <div class="box">
+      <div class="big_banner"></div>
+      <div class="preload_box"></div>
     </div>
   </div>
+
 </div>
 </template>
 
@@ -42,7 +47,86 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container{
-  max-width:1920px;
+  *{
+    padding:0px;
+    margin:0px;
+  }
+.nav{
+  background-color: aliceblue;
+  width:100%;
+  height:1500px;
+  margin:20px;
 }
+  .toolbar {
+    background-color: antiquewhite;
+    width: 100%;
+    height: 90px;
+    border: 2px solid red;
+  }
+.tool-container{
+  width:1200px;
+  height:90px;
+  margin:0px auto;
+  border: 2px solid blue;
+}
+  .header{
+    background-color: antiquewhite;
+    width:100%;
+    height:200px;
+    border:2px solid red;
+  }
+  .header_mid{
+    width:1200px;
+    height:200px;
+    margin:0px auto;
+    border: 2px solid blue;
+  }
+  .mainnav{
+    background-color: antiquewhite;
+    width:100%;
+    height:80px;
+    border:2px solid red;
+  }
+  .mainnav_center{
+    width:1200px;
+    height:80px;
+    margin:0px auto;
+    border: 2px solid blue;
+  }
+  .banner{
+    background-color: antiquewhite;
+    width:100%;
+    height:500px;
+    border:2px solid red;
+  }
+  .banner_content{
+    width:1200px;
+    height:500px;
+    margin:0px auto;
+    border: 2px solid blue;
+  }
+  .content_main{
+    background-color: antiquewhite;
+    width:100%;
+    height:294px;
+    border:2px solid red;
+  }
+  .box{
+    width:1200px;
+    height:294px;
+    margin:0px auto;
+    border: 2px solid blue;
+  }
+  .big_banner{
+    float:left;
+    width:230px;
+    height:294px;
+    border:2px solid blue;
+  }
+  .preload_box{
+    float:right;
+    width:960px;
+    height:294px;
+    border:2px solid #000000;
+  }
 </style>
