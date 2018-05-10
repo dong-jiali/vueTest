@@ -111,6 +111,7 @@ export default {
     height:294px;
     border:2px solid red;
   }
+  /*---*/
   .box{
     width:1200px;
     height:294px;
