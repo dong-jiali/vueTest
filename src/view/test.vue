@@ -54,8 +54,6 @@ export default {
 .nav{
   background-color: aliceblue;
   width:100%;
-  height:1500px;
-  margin:20px;
 }
   .toolbar {
     background-color: antiquewhite;
@@ -131,4 +129,5 @@ export default {
     height:294px;
     border:2px solid #000000;
   }
+
 </style>
