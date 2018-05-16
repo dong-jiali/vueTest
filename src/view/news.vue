@@ -1,14 +1,14 @@
 <template>
-  <div class="menu">
+  <div class="mainContent">
     <!--<h1>{{ msg }}</h1>-->
-    <h2>LIST Links</h2>
-    <nav>
+    <!-- <h2>LIST Links</h2> -->
+<!--     <nav>
       <ul>
         <li v-for="menu in navList">
           <router-link :to="menu.path"> {{ menu.name }} </router-link>
         </li>
       </ul>
-    </nav>
+    </nav> -->
     <ul>
       <li>
         <a

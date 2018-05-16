@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <nav></nav>
-    <!--<router-view></router-view>-->
-    <router-view :key="key"></router-view>
+    <menus class='test123'></menus>
+    <!-- <router-view></router-view>-<!-- -> -->
+    <router-view></router-view> 
   </div>
 </template>
 
 <script>
-  import nav from '@/components/menu'
+import menus from '@/components/menu'
 export default {
   name: 'HelloWorld',
   data () {
@@ -16,19 +16,20 @@ export default {
       navList: []
     }
   },
+          // components: { MainHeader},
   components: {
-    nav
+    menus
   },
   methods: {
     hello () {
       console.log('dddddddddddddd')
     }
   },
-  computed: {
-    key () {
-      return  this.$route.name !== undefined ? this.$route.name + +new Date() : this.$route + +new Date()
-    }
-  },
+  // computed: {
+  //   key () {
+  //     return  this.$route.name !== undefined ? this.$route.name + +new Date() : this.$route + +new Date()
+  //   }
+  // },
   mounted () {
     console.log(this.$store)
     console.log(this.$router)

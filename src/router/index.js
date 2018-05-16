@@ -3,8 +3,14 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 // import nav from '@/components/menu'
 import layout from '@/components/layout'
+/* */
+
 import test from '@/view/test.vue'
+/* */
+
 import about from '@/view/about.vue'
+/**/
+
 import news from '@/view/news.vue'
 
 Vue.use(Router)

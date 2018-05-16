@@ -1,11 +1,11 @@
 <template>
   <div class="menu">
     <!--<h1>{{ msg }}</h1>-->
-    <h2>Essential Links</h2>
+    <!-- <h2>Essential MENUS</h2> -->
     <nav>
       <ul>
-        <li class="test" v-for="menu in navList">
-          <router-link :to="menu.path"> {{ menu.name }} </router-link>
+        <li class="test" :key=index v-for="(menu, index) in navList">
+          <router-link :key="menu.path" :to="menu.path"> {{ menu.name }} </router-link>
         </li>
       </ul>
     </nav>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'menu',
   data () {
     return {
       msg: '导航菜单',
@@ -27,9 +27,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$store)
-    console.log(this.$router)
-    console.log(this.$route)
+    console.log('menu')
     this.navList = this.$router.options.routes
   }
 }
@@ -40,6 +38,14 @@ export default {
   .menu{
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height:30px;
+    background: #eee;
+  }
+  .menu nav{
+    width: 900px;
+    text-align: left;
+    margin:0 auto;
   }
 h1, h2 {
   font-weight: normal;
@@ -53,6 +59,10 @@ li {
   margin: 0 10px;
 }
 a {
+  text-decoration: none;
   color: #42b983;
+}
+a:hover{
+  color:red;
 }
 </style>
