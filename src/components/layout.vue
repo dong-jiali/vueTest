@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <menus class='test123'></menus>
-    <!-- <router-view></router-view>-<!-- -> -->
-    <router-view></router-view> 
+    <!-- <router-view></router-view> -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
       navList: []
     }
   },
-          // components: { MainHeader},
+  // components: { MainHeader},
   components: {
     menus
   },
