@@ -1,0 +1,15 @@
+.public-header{
+  height:110px;
+}
+.public-container{
+  position:relative;
+  margin:0 auto;
+  background-color: aqua;
+  width:1100px;
+  height:110px;
+}
+.punlic-footer{
+  height:316px;
+  width:1920px;
+  background-color: aqua;
+}
