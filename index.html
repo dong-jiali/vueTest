@@ -25,18 +25,16 @@
             console.log('do not support service worker!')
         }
     </script> -->
-</body>
 
-</html>
+    <script>
+        console.log('addEventListener.message')
+        const allowed = {
+            'http://127.0.0.1:8080': true
+        }
+        window.addEventListener('message', e => {
+            console.log('addEventListener====>', e)
+        })
+    </script>
 </body>
-<script>
-    console.log('addEventListener.message')
-    const allowed = {
-        'http://127.0.0.1:8080': true
-    }
-    window.addEventListener('message', e => {
-        console.log('addEventListener====>', e)
-    })
-</script>
 
 </html>
