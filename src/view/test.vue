@@ -59,75 +59,75 @@ export default {
     background-color: antiquewhite;
     width: 100%;
     height: 90px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
 .tool-container{
   width:1200px;
   height:90px;
   margin:0px auto;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
   .header{
     background-color: antiquewhite;
     width:100%;
     height:200px;
-    border:2px solid red;
+    /* border:2px solid red; */
   }
   .header_mid{
     width:1200px;
     height:200px;
     margin:0px auto;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
   }
   .mainnav{
     background-color: antiquewhite;
     width:100%;
     height:80px;
-    border:2px solid red;
+    /* border:2px solid red; */
   }
   .mainnav_center{
     width:1200px;
     height:80px;
     margin:0px auto;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
   }
   .banner{
     background-color: antiquewhite;
     width:100%;
     height:500px;
-    border:2px solid red;
+    /* border:2px solid red; */
   }
   .banner_content{
     width:1200px;
     height:500px;
     margin:0px auto;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
   }
   .content_main{
     background-color: antiquewhite;
     width:100%;
     height:294px;
-    border:2px solid red;
+    /* border:2px solid red; */
   }
   /*---*/
   .box{
     width:1200px;
     height:294px;
     margin:0px auto;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
   }
   /***/
   .big_banner{
     float:left;
     width:230px;
     height:294px;
-    border:2px solid blue;
+    /* border:2px solid blue; */
   }
   .preload_box{
     float:right;
     width:960px;
     height:294px;
-    border:2px solid #000000;
+    /* border:2px solid #000000; */
   }
 
 </style>
