@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>worker Document</title>
+</head>
+<body>
+	<script>
+		console.log('web worker test init')
+		const worker = new Worker('./worker.js')
+		worker.postMessage('hello world!')
+		worker.postMessage({method: 'echo', args: ['testWork1']});
+		worker.onmessage = (e => {
+			console.log('Received message is:', e)
+			setTimeout(()=>{
+				worker.postMessage({method: 'close', args: true})
+		
+			}, 5000)
+			if (e.data.method && e.data.method === 'close') {
+				console.log('e.data.method.isclose===>', e.data.args)
+						worker.terminate()
+			}
+		})
+	</script>
+</body>
+</html>
