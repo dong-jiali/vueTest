@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'appMain',
   data () {
     return {
       msg: '导航菜单',

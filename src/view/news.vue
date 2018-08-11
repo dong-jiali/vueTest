@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'news',
   data () {
     return {
       msg: '导航菜单',

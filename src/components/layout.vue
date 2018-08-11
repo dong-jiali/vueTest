@@ -13,7 +13,7 @@
 <script>
 import menus from '@/components/menu'
 export default {
-  name: 'HelloWorld',
+  name: 'layout',
   data () {
     return {
       msg: '导航菜单',
