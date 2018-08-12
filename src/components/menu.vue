@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'menu',
+  name: 'menuTool',
   data () {
     return {
       msg: '导航菜单',

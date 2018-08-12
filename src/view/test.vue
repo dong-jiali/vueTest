@@ -2,14 +2,31 @@
 <div class="nav">
   <div class="login">
     <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+          <el-form-item label="用户名" prop="name">
+    <el-input v-model="ruleForm2.name"></el-input>
+  </el-form-item>
   <el-form-item label="密码" prop="pass">
     <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
   </el-form-item>
   <el-form-item label="确认密码" prop="checkPass">
     <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off"></el-input>
   </el-form-item>
-  <el-form-item label="年龄" prop="age">
+  <el-form-item label="数值" prop="userid">
+    <el-input v-model.number="ruleForm2.userid"></el-input>
+  </el-form-item>
+    <el-form-item label="年龄" prop="age">
     <el-input v-model.number="ruleForm2.age"></el-input>
+  </el-form-item>
+    <el-form-item label="状态" prop="status">
+      <el-switch
+  v-model="ruleForm2.status"
+  active-color="#13ce66"
+  inactive-color="#ff4949">
+</el-switch>
+    <!-- <el-input v-model="ruleForm2.status"></el-input> -->
+  </el-form-item>
+   <el-form-item label="描述">
+    <el-input type="textarea" v-model="ruleForm2.description"></el-input>
   </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
@@ -18,13 +35,40 @@
 </el-form>
   </div>
   <div class="toolbar"><!--工具条-->
-    <div class="tool-container"></div><!--工具条居中-->
+    <div class="tool-container">
+
+      </div><!--工具条居中-->
   </div>
   <div class="header"><!--页头-->
     <div class="header_mid"></div><!--页头居中-->
   </div>
   <div class="mainnav"><!--栏目-->
-    <div class="mainnav_center"></div><!--栏目居中-->
+    <div class="mainnav_center">
+          <el-button type="primary" @click="getDataList()">数据列表</el-button>
+      </div><!--栏目居中-->
+          <el-table
+      :data="tableData"
+      style="width: 100%">
+      <el-table-column
+        prop="_id"
+        label="ID"
+        width="180">
+      </el-table-column>
+      <el-table-column
+        prop="userid"
+        label="姓名"
+        width="180">
+      </el-table-column>
+          <el-table-column
+      label="操作"
+      width="100">
+      <template slot-scope="scope">
+        <!-- <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button> -->
+                  <el-button type="primary" @click="openDetail(scope.row)">查看详情</el-button>
+        <!-- <el-button type="text" size="small">编辑</el-button> -->
+      </template>
+    </el-table-column>
+    </el-table>
   </div>
   <div class="banner"><!--海报-->
     <div class="banner_content"></div><!--海报内容-->
@@ -40,10 +84,23 @@
 </template>
 
 <script>
+import axios from 'axios'
+
+/**
+ * 
+ * const userSchema = new Schema({
+	name: String,
+	age: Number,
+	userid: String,
+	pass: String,
+	status: Boolean,
+	description: String
+})
+ * */
 export default {
-  name: 'HelloWorld',
+  name: 'testAxios',
   data () {
-     const checkAge = (rule, value, callback) => {
+     const checkUserid = (rule, value, callback) => {
         if (!value) {
           return callback(new Error('年龄不能为空'));
         }
@@ -81,10 +138,15 @@ export default {
     return {
       msg: '导航菜单',
       navList: [],
+      tableData: [],
       ruleForm2: {
-          pass: '',
-          checkPass: '',
-          age: ''
+        name: '',
+        age: 0,
+          pass: '123456',
+          checkPass: '123456',
+          userid: '',
+          status: false,
+          description: ''
         },
         rules2: {
           pass: [
@@ -93,8 +155,8 @@ export default {
           checkPass: [
             { validator: validatePass2, trigger: 'blur' }
           ],
-          age: [
-            { validator: checkAge, trigger: 'blur' }
+          userid: [
+            { validator: checkUserid, trigger: 'blur' }
           ]
         }
     }
@@ -103,10 +165,41 @@ export default {
     hello () {
       console.log('dddddddddddddd')
     },
+    openDetail(data) {
+      // const url = 'api/user/' + data._id
+      const url = 'api/userGraphql/' + data._id
+      axios.get(url)
+      .then(result => {
+        console.log(result)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    },
+    getDataList() {
+      const url = 'api/user'
+      axios.get(url)
+      .then(result => {
+        console.log(result)
+        this.tableData = result.data
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    },
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            // alert('submit!');
+            const url = "/api/testForm"
+            console.log('ruleForm2=======', this.ruleForm2)
+            axios.post(url, this.ruleForm2)
+              .then(result => {
+                console.log(result)
+              })
+              .catch(err => {
+                console.log(err)
+              })
           } else {
             console.log('error submit!!');
             return false;
