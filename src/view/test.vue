@@ -167,7 +167,9 @@ export default {
     },
     openDetail(data) {
       // const url = 'api/user/' + data._id
-      const url = 'api/userGraphql/' + data._id
+      const id = data._id;
+      const schema = `{user (_id: "5c6ef1d908ec991ac020919d" ){name, userid}}`;
+      const url = 'api/userGraphql?query=' + schema
       axios.get(url)
       .then(result => {
         console.log(result)

@@ -49,28 +49,32 @@ app.get('/api/user/:id', urlencodedParser, (req, res) => {
 	})
 	// res.send('dataid===>' + id)
 })
-
-const getData = (id) => {
-	console.log('getData=========>', id)
-	const root = {
-		user: {
-			_id: '5c6ef1d908ec991ac020919d',
-			name: 'brian',
-			sex: '男',
-			pass: '666666',
-			userid: 'IT界大佬，世界十大隐式福布斯富豪',
-			status: 'false',
-			description: 'this is a description'
-		}
-	};
-	return root
+const root = {
+	user: {
+		_id: '5c6ef1d908ec991ac0209192',
+		name: 'brian',
+		sex: '男',
+		pass: '666666',
+		userid: 'IT界大佬，世界十大隐式福布斯富豪1',
+		status: 'false',
+		description: 'this is a description'
+	}
 }
 
-app.use('/api/userGraphql', urlencodedParser, (req, res) => {
-	// console.log(req)
-	const id = req.params.id
-	const schema = buildSchema(`
+const getData = () => {
+	let dataList =  null
+	// user.aggregate({}, (req, count) => {
+		user.find({}, null, { skip: 1, limit: 5 }, (req, user) => {
+			 dataList = user
+			// res.send(data)
+		})
+	// })
+	console.log(dataList)
+	return dataList
+}
+const schema = buildSchema(`
 	type User {
+		_id: String,
 		name: String,
 		age: String,
 		userid: String,
@@ -79,16 +83,17 @@ app.use('/api/userGraphql', urlencodedParser, (req, res) => {
 		description: String
 	}
 	type Query{
-		user: User
+		user(_id: String): User
 	}
 `)
-	const data = graphqlHTTP({
+app.use('/api/userGraphql', graphqlHTTP({
 		schema: schema,
-		rootValue: getData(id),
+		// rootValue: root,
+		rootValue: getData(),
 		graphql: true
 	})
-	res.send(data)
-})
+)
+
 
 app.get('/api/user', urlencodedParser, (req, res) => {
 	
