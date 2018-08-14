@@ -5,13 +5,14 @@ import Router from 'vue-router'
 import layout from '@/components/layout'
 /* */
 
-import test from '@/view/test.vue'
+// import test from '@/view/test.vue'
 /* */
 
-import about from '@/view/about.vue'
+// import about from '@/view/about.vue'
 /**/
 
 import news from '@/view/news.vue'
+// import { resolve } from 'url';
 
 Vue.use(Router)
 
@@ -40,7 +41,11 @@ export default new Router({
         {
           path: '/test',
           name: '测试',
-          component: test
+          // component: test
+          component: resolve => {
+            // 懒加载
+            require(['@/view/test.vue'], resolve)
+          }
         }
       ]
     },
@@ -54,7 +59,11 @@ export default new Router({
         {
           path: '/about',
           name: '关于我们',
-          component: about
+          // component: about
+          component: resolve => {
+            // 懒加载
+            require(['@/view/about.vue'], resolve)
+          }
         }
       ]
     }
