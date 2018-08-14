@@ -64,6 +64,15 @@ export default new Router({
             // 懒加载
             require(['@/view/about.vue'], resolve)
           }
+        },
+        {
+          path: '/responsive',
+          name: '响应式图片',
+          // component: about
+          component: resolve => {
+            // 懒加载
+            require(['@/view/responsive.vue'], resolve)
+          }
         }
       ]
     }
