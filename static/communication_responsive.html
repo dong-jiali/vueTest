@@ -1,88 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<!-- <<meta name="name" content="content">> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maxmum-scale=1.0, user-scalable=0">
-	<title>Document for Communication</title>
-	<style>
-	ul li{
-		list-style: none;
-		text-align: center;
-		line-height: 50px;
-		background: #eed;
-		float: left;
-		/*display: inline-block;*/
-		/*border: solid 1px #ccc;*/
-	}
 
-				*{
-				margin: 0;
-				padding:0;
-			}
-		body{
-			font-size: 12px;
-			background: #fff;
-		}
-		.responsive{
-			position: relative;
-			overflow: hidden;
-			width: 100%;
-			font-size:1rem;
-		}
-		.bar{
-			/*width: 25%;*/
-			position: relative;
-			overflow: hidden;
-			float: left;
-		}
-		.bar li{
-			background: #999;
-			width: 100%;
-			/*height: */
-		}
-		.main{
-			/*width: 50%;*/
-			position: relative;
-			overflow: hidden;
-			background: #eee;
-			float: left;
-		}
-		/*
+<head>
+    <meta charset="UTF-8">
+    <!-- <<meta name="name" content="content">> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maxmum-scale=1.0, user-scalable=0">
+    <title>Document for Communication</title>
+    <style>
+    ul li {
+            list-style: none;
+            text-align: center;
+            line-height: 50px;
+            background: #eed;
+            float: left;
+            /*display: inline-block;*/
+            /*border: solid 1px #ccc;*/
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-size: 12px;
+            background: #fff;
+        }
+        
+        .responsive {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .bar {
+            /*width: 25%;*/
+            position: relative;
+            overflow: hidden;
+            float: left;
+        }
+        
+        .bar li {
+            background: #999;
+            width: 100%;
+            /*height: */
+        }
+        
+        .main {
+            /*width: 50%;*/
+            position: relative;
+            overflow: hidden;
+            background: #eee;
+            float: left;
+        }
+        /*
 
              '#C1232B','#B5C334','#FCCE10','#E87C25','#27727B',
                                '#FE8463','#9BCA63','#FAD860','#F3A43B','#60C0DD',
                                '#D7504B','#C6E579','#F4E001','#F0805A','#26C0C0'
 		*/
-		.main ul li:nth-child(1){
-			background: #F3A43B;
-
-		}
-				.main ul li:nth-child(2){
-			background: #FCCE10;
-
-		}
-				.main ul li:nth-child(3){
-			background: #9BCA63;
-
-		}
-				.main ul li:nth-child(4){
-			background: #B5C334;
-
-		}
-				.main ul li:nth-child(5){
-			background: #C1232B;
-
-		}
-						.main ul li:nth-child(6){
-			background: #26C0C0;
-
-		}
-						.main ul li:nth-child(7){
-			background: #F0805A;
-
-		}
-/*		.col{
+        
+        .main ul li:nth-child(1) {
+            background: #F3A43B;
+        }
+        
+        .main ul li:nth-child(2) {
+            background: #FCCE10;
+        }
+        
+        .main ul li:nth-child(3) {
+            background: #9BCA63;
+        }
+        
+        .main ul li:nth-child(4) {
+            background: #B5C334;
+        }
+        
+        .main ul li:nth-child(5) {
+            background: #C1232B;
+        }
+        
+        .main ul li:nth-child(6) {
+            background: #26C0C0;
+        }
+        
+        .main ul li:nth-child(7) {
+            background: #F0805A;
+        }
+        /*		.col{
 			background: #efe;
 			height: 20px;
 		}
@@ -104,138 +110,128 @@
 	padding: 15px;
 	border: solid 1px #ccc;
 } */
-
-		@media only screen and (max-width: 2068px) {
-		.responsive{
-				font-size:1rem;
-			}
-		.main{
-			width: 75%;
-
-		}
-		.main li {
-			width: 20%;
-		}
-				.bar{
-			width: 25%;
-
-		}
-	}
-			@media only screen and (max-width: 1268px) {
-		.responsive{
-				font-size:1rem;
-			}
-		.main{
-			width: 75%;
-
-		}
-		.main li {
-			width: 25%;
-		}
-				.bar{
-			width: 25%;
-
-		}
-	}
-			@media only screen and (max-width: 768px) {
-		.responsive{
-				font-size:1rem;
-			}
-		.main{
-			width: 75%;
-
-		}
-		.main li {
-			width: 33%;
-		}
-				.bar{
-			width: 25%;
-
-		}
-	}
-
-		@media only screen and (max-width: 480px) {
-			.responsive{
-				font-size:1rem;
-			}
-
-		.main{
-			width: 50%;
-		}
-		.main li{
-			width: 50%;
-		}
-				.bar{
-			width: 50%;
-
-		}
-	}
-
-		@media only screen and (max-width: 320px) {
-			.responsive{
-				font-size:1rem;
-			}
-				
-		.main{
-			width: 100%;
-
-		}
-		.main li{
-			width: 100%;
-		}
-		.bar{
-			width: 100%;
-
-		}
-			}
-	}
-
-
-
-
-
-	</style>
+        
+        @media only screen and (max-width: 2068px) {
+            .responsive {
+                font-size: 1rem;
+            }
+            .main {
+                width: 75%;
+            }
+            .main li {
+                width: 20%;
+            }
+            .bar {
+                width: 25%;
+            }
+        }
+        
+        @media only screen and (max-width: 1268px) {
+            .responsive {
+                font-size: 1rem;
+            }
+            .main {
+                width: 75%;
+            }
+            .main li {
+                width: 25%;
+            }
+            .bar {
+                width: 25%;
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .responsive {
+                font-size: 1rem;
+            }
+            .main {
+                width: 75%;
+            }
+            .main li {
+                width: 33%;
+            }
+            .bar {
+                width: 25%;
+            }
+        }
+        
+        @media only screen and (max-width: 480px) {
+            .responsive {
+                font-size: 1rem;
+            }
+            .main {
+                width: 50%;
+            }
+            .main li {
+                width: 50%;
+            }
+            .bar {
+                width: 50%;
+            }
+        }
+        
+        @media only screen and (max-width: 320px) {
+            .responsive {
+                font-size: 1rem;
+            }
+            .main {
+                width: 100%;
+            }
+            .main li {
+                width: 100%;
+            }
+            .bar {
+                width: 100%;
+            }
+        }
+    }
+    </style>
 </head>
+
 <body>
-	<div class="responsive">
-		<div class="bar">
-			<ul>
-				<li>1</li>
-				<li>2</li>
-				<li>2</li>
-				<li>2</li>
-				<li>4</li>
-				<li>3</li>
-				<li>6</li>
-				<li>8</li>
-				<li>5</li>
-				<li>3</li>
-			</ul>
-		</div>
-		<div class="main">
-			<h3>responsive</h3>
-			<p>
-				<picture>
-					<!-- <source srcset="/image/min.png" media="(min-width: 400px)"> -->
-					<source srcset="/image/mid.jpg" media="(min-width: 800px)">
-					<source srcset="/image/max.png" media="(min-width: 1200px)">
-						<img src="image/min.png" alt="">
-				</picture>
-			</p>
-			<ul>
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li>4</li>
-				<li>5</li>
-				<li>6</li>
-				<li>7</li>
-				<li>3</li>
-				<li>34</li>
-				<li>42</li>
-			</ul>
-			<!-- <p>main</p> -->
-<!-- 			<div class="col col-1"></div>
+    <div class="responsive">
+        <div class="bar">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+                <li>4</li>
+                <li>3</li>
+                <li>6</li>
+                <li>8</li>
+                <li>5</li>
+                <li>3</li>
+            </ul>
+        </div>
+        <div class="main">
+            <h3>responsive</h3>
+            <p>
+                <picture>
+
+                    <source srcset="/static/image/max.png" media="(min-width: 800px)">
+                    <source srcset="/static/image/mid.jpg" media="(min-width: 600px)">
+                    <source srcset="/static/image/min.png" media="(min-width: 400px)">
+                    <img src="/static/image/normal.jpg" alt="">
+
+
+                </picture>
+            </p>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>3</li>
+                <li>34</li>
+                <li>42</li>
+            </ul>
+            <!-- <p>main</p> -->
+            <!-- 			<div class="col col-1"></div>
 			<div class="col col-2"></div>
 			<div class="col col-3"></div>
 			<div class="col col-4"></div>
@@ -247,43 +243,44 @@
 			<div class="col col-10"></div>
 			<div class="col col-11"></div>
 			<div class="col col-12"></div> -->
-		</div>
-	</div>
-<!-- <div>
+        </div>
+    </div>
+    <!-- <div>
 	<input id="keyword" type="text"/>
 	<button onclick="search()">Search</button>
 	<span id="results">
 		<b id="resultsNum"></b> results.
 	</span>
 </div> -->
- 
-<!--news module-->
-<!-- <iframe id='newsModule' src="http://127.0.0.1:8061/#/about"></iframe> -->
- 
-<!--stocks module-->
 
-<!-- <iframe id="stocksModule" src="http://127.0.0.1:8080"></iframe> -->
+    <!--news module-->
+    <!-- <iframe id='newsModule' src="http://127.0.0.1:8061/#/about"></iframe> -->
 
-	<script>
-		console.log('Communication')
+    <!--stocks module-->
 
-		// function search() {		 
-		// 	const keyword = document.getElementById('keyword').value;
-		// 	const newsOrigin = 'http://127.0.0.1:8061/#/about';
-		// 	const stocksOrigin = 'http://127.0.0.1:8080';
-		 
-		// 	document.getElementById('newsModule').contentWindow.postMessage({keyword: keyword}, newsOrigin);
-		// 	document.getElementById('stocksModule').contentWindow.postMessage({keyword: keyword}, stocksOrigin);
+    <!-- <iframe id="stocksModule" src="http://127.0.0.1:8080"></iframe> -->
 
-		// }
+    <script>
+        console.log('Communication')
 
-		const result1 = window.matchMedia('(max-width: 320px)');
-		const result2 = window.matchMedia('(max-width: 480px)');
-		const result3 = window.matchMedia('(max-width: 768px)');
+        // function search() {		 
+        // 	const keyword = document.getElementById('keyword').value;
+        // 	const newsOrigin = 'http://127.0.0.1:8061/#/about';
+        // 	const stocksOrigin = 'http://127.0.0.1:8080';
 
-		console.log('result1', result1.matches)
-		console.log('result2', result2.matches)
-		console.log('result3', result3.matches)
-	</script>
+        // 	document.getElementById('newsModule').contentWindow.postMessage({keyword: keyword}, newsOrigin);
+        // 	document.getElementById('stocksModule').contentWindow.postMessage({keyword: keyword}, stocksOrigin);
+
+        // }
+
+        const result1 = window.matchMedia('(max-width: 320px)');
+        const result2 = window.matchMedia('(max-width: 480px)');
+        const result3 = window.matchMedia('(max-width: 768px)');
+
+        console.log('result1', result1.matches)
+        console.log('result2', result2.matches)
+        console.log('result3', result3.matches)
+    </script>
 </body>
+
 </html>
