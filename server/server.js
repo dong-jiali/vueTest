@@ -4,6 +4,13 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const graphqlHTTP = require('express-graphql')
 // const { buildSchema } = require('graphql')
+// const apollo = require('apollo-server-express')
+// const graphiqlExpress = apollo.graphiqlExpress()
+// const graphqlExpress = apollo.graphqlExpress()
+const { graphiqlExpress, graphqlExpress } = require('apollo-server-express')
+// import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
+const { makeExecutableSchema } = require('graphql-tools')
+// import { makeExecutableSchema } from 'graphql-tools'
 // const router = require('./router.js')
 // const router = express.Router()
 const mongoose = require('mongoose')
@@ -30,15 +37,17 @@ const app = express()
 const jsonParser = bodyParser.json()
 const urlencodedParser = bodyParser.urlencoded({extended: false})
 // app.use(router)
+
 app.get('/', (req, res) => {
 	const time = new Date().getTime()
 	res.send('hello world' + time)
 })
 
-app.get('/graphql', (req, res) => {
-	const time = new Date().getTime()
-	res.send('hello world graphql=' + time)
-})
+
+
+app.use('/graphiql', graphiqlExpress({
+	endpointURL: '/graphql'
+}))
 
 app.get('/api/user/:id', urlencodedParser, (req, res) => {
 	const id = req.params.id
@@ -61,17 +70,35 @@ const root = {
 	}
 }
 
-const getData = () => {
-	let dataList =  null
+function getData() {
+	const dataList =  {}
 	// user.aggregate({}, (req, count) => {
-		user.find({}, null, { skip: 1, limit: 5 }, (req, user) => {
-			 dataList = user
+		user.find({}, (req, result) => {
+			console.log('user====111111111>', result)
+			dataList.user = result
 			// res.send(data)
+			return dataList
 		})
 	// })
-	console.log(dataList)
-	return dataList
+	// console.log('222222===>', dataList)
+	// return dataList
 }
+const model = `
+	type User {
+		_id: String,
+		name: String,
+		age: String,
+		userid: String,
+		pass: String,
+		status: String,
+		description: String
+	}
+	type Query{
+		user(_id: String): User
+	}
+	schema {query: Query}
+`
+
 const schema = buildSchema(`
 	type User {
 		_id: String,
@@ -86,6 +113,16 @@ const schema = buildSchema(`
 		user(_id: String): User
 	}
 `)
+
+const resolvers = {
+	Query: { user({ id }) { return http.get(`/api/user/${id}`)}}
+}
+
+const modelSchema = makeExecutableSchema({
+	model,
+	resolvers
+})
+app.use('/graphql', graphqlExpress({ modelSchema }))
 app.use('/api/userGraphql', graphqlHTTP({
 		schema: schema,
 		// rootValue: root,
