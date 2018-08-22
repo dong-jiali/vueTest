@@ -3,11 +3,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const graphqlHTTP = require('express-graphql')
+// const apolloClient = require('apollo-client')
+// const gtag = require('graphql-tag')
 // const { buildSchema } = require('graphql')
 // const apollo = require('apollo-server-express')
 // const graphiqlExpress = apollo.graphiqlExpress()
 // const graphqlExpress = apollo.graphqlExpress()
-const { graphiqlExpress, graphqlExpress } = require('apollo-server-express')
+// const { graphiqlExpress, graphqlExpress } = require('apollo-server-express')
 // import { graphiqlExpress, graphqlExpress } from 'apollo-server-express'
 const { makeExecutableSchema } = require('graphql-tools')
 // import { makeExecutableSchema } from 'graphql-tools'
@@ -45,9 +47,9 @@ app.get('/', (req, res) => {
 
 
 
-app.use('/graphiql', graphiqlExpress({
-	endpointURL: '/graphql'
-}))
+// app.use('/graphiql', graphiqlExpress({
+// 	endpointURL: '/graphql'
+// }))
 
 app.get('/api/user/:id', urlencodedParser, (req, res) => {
 	const id = req.params.id
@@ -74,7 +76,7 @@ function getData() {
 	const dataList =  {}
 	// user.aggregate({}, (req, count) => {
 		user.find({}, (req, result) => {
-			console.log('user====111111111>', result)
+			// console.log('user====111111111>', result)
 			dataList.user = result
 			// res.send(data)
 			return dataList
@@ -83,7 +85,7 @@ function getData() {
 	// console.log('222222===>', dataList)
 	// return dataList
 }
-const model = `
+const typeDefs = `
 	type User {
 		_id: String,
 		name: String,
@@ -115,16 +117,19 @@ const schema = buildSchema(`
 `)
 
 const resolvers = {
-	Query: { user({ id }) { return http.get(`/api/user/${id}`)}}
+	Query: { user({ id }) {
+		console.log('user11111111111111====', id)
+		return http.get(`/api/user/${id}`)
+	}}
 }
 
 const modelSchema = makeExecutableSchema({
-	model,
+	typeDefs,
 	resolvers
 })
-app.use('/graphql', graphqlExpress({ modelSchema }))
+app.use('/api/graphql', graphqlHTTP({ modelSchema }))
 app.use('/api/userGraphql', graphqlHTTP({
-		schema: schema,
+		schema: typeDefs,
 		// rootValue: root,
 		rootValue: getData(),
 		graphql: true

@@ -40,12 +40,13 @@ db.once('open', () => {
 
 const personSchema = new mongoose.Schema({
 	name: String,
-	age: Number
+	age: Number,
+	date: String
 })
 
 const PersonModel = db.model('Person', personSchema)
-
-const personEntity = new PersonModel({name: 'test111112222', age: 333})
+const time = new Date().getTime().toString()
+const personEntity = new PersonModel({ name: 'test112', age: 1033, date: time})
 
 // personSchema.methos.speak = function () {
 // 	console.log('this data is=', this.name)
